@@ -5,7 +5,7 @@
   "homepage": "https://uniswap.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/uniswap-v2-core"
+    "url": "git+https://github.com/Uniswap/uniswap-v2-core.git"
   },
   "keywords": [
     "uniswap",
@@ -46,8 +46,17 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@openzeppelin/contracts": "^2.5.1",
     "@truffle/hdwallet-provider": "^1.4.0",
     "dotenv": "^8.2.0",
     "truffle-hdwallet-provider": "^1.0.17"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Uniswap/uniswap-v2-core/issues"
+  },
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
