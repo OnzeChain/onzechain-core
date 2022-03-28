@@ -27,14 +27,14 @@ module.exports = {
       skipDryRun: true
     },
     mainnet: {
-      provider: () => new HDWalletProvider(process.env.PK, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY),
+      provider: () => new HDWalletProvider(process.env.PK, "https://mainnet.infura.io/v3/" + process.env.INFURA_APIKEY),
       port: 8545,
       network_id: "1",
       gas: 6000000,
       gasPrice: 4000000000
     },
     rinkeby: {
-      provider: () => new HDWalletProvider(process.env.PK, "https://rinkeby.infura.io/v3/" + process.env.INFURA_API_KEY),
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://rinkeby.infura.io/v3/" + process.env.INFURA),
       port: 8545,
       network_id: "4",
       gas: 6000000,
