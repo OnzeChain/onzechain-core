@@ -6,6 +6,7 @@ import './UniswapV2Pair.sol';
 contract UniswapV2Factory is IUniswapV2Factory {
     address public feeTo;
     address public feeToSetter;
+    bytes32 public constant INIT_CODE_PAIR_HASH = keccak256(abi.encodePacked(type(UniswapV2Pair).creationCode));
 
     mapping(address => mapping(address => address)) public getPair;
     address[] public allPairs;
@@ -18,6 +19,14 @@ contract UniswapV2Factory is IUniswapV2Factory {
 
     function allPairsLength() external view returns (uint) {
         return allPairs.length;
+    }
+
+    function pairCodeHash() external pure returns (bytes32) {
+        return keccak256(type(UniswapV2Pair).creationCode);
+    }
+
+    function get_INIT_HASH() external view returns (bytes32) {
+        return INIT_CODE_PAIR_HASH;
     }
 
     function createPair(address tokenA, address tokenB) external returns (address pair) {
