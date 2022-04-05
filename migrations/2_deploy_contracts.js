@@ -13,8 +13,10 @@ module.exports = async function(deployer, network, addresses) {
   }else{
       await deployer.deploy(Token1)
       await deployer.deploy(Token2)
+      
       const token1 = await Token1.deployed();
       const token2 = await Token2.deployed();
+
       token1Address = token1.address;
       token2Address = token2.address;
   }

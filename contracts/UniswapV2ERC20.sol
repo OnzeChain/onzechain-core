@@ -1,4 +1,4 @@
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 import './interfaces/IUniswapV2ERC20.sol';
 import './libraries/SafeMath.sol';
@@ -24,7 +24,7 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
     constructor() public {
         uint chainId;
         assembly {
-            chainId := chainid
+            chainId := chainId
         }
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(

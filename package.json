@@ -32,7 +32,8 @@
     "rimraf": "^3.0.0",
     "solc": "0.5.16",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "ethers": "^5.6.2"
   },
   "scripts": {
     "lint": "yarn prettier ./test/*.ts --check",
@@ -46,10 +47,10 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@openzeppelin/contracts": "^2.5.1",
-    "@truffle/hdwallet-provider": "^1.4.0",
-    "dotenv": "^8.2.0",
-    "truffle-hdwallet-provider": "^1.0.17"
+    "@ethersproject/providers": "^5.6.2",
+    "@openzeppelin/contracts": "^4.5.0",
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "dotenv": "^16.0.0"
   },
   "bugs": {
     "url": "https://github.com/Uniswap/uniswap-v2-core/issues"

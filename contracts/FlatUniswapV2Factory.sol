@@ -1,6 +1,6 @@
 // File: contracts/interfaces/IUniswapV2Factory.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.8.0;
 
 interface IUniswapV2Factory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -20,7 +20,7 @@ interface IUniswapV2Factory {
 
 // File: contracts/interfaces/IUniswapV2Pair.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.8.0;
 
 interface IUniswapV2Pair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -75,7 +75,7 @@ interface IUniswapV2Pair {
 
 // File: contracts/interfaces/IUniswapV2ERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.8.0;
 
 interface IUniswapV2ERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -101,7 +101,7 @@ interface IUniswapV2ERC20 {
 
 // File: contracts/libraries/SafeMath.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -121,7 +121,7 @@ library SafeMath {
 
 // File: contracts/UniswapV2ERC20.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 
 contract UniswapV2ERC20 is IUniswapV2ERC20 {
@@ -145,7 +145,7 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
     constructor() public {
         uint chainId;
         assembly {
-            chainId := chainid
+            chainId := chainId
         }
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(
@@ -216,7 +216,7 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
 
 // File: contracts/libraries/Math.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 // a library for performing various math operations
 
@@ -242,7 +242,7 @@ library Math {
 
 // File: contracts/libraries/UQ112x112.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 // a library for handling binary fixed point numbers (https://en.wikipedia.org/wiki/Q_(number_format))
 
@@ -265,7 +265,7 @@ library UQ112x112 {
 
 // File: contracts/interfaces/IERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.8.0;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -285,7 +285,7 @@ interface IERC20 {
 
 // File: contracts/interfaces/IUniswapV2Callee.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.8.0;
 
 interface IUniswapV2Callee {
     function uniswapV2Call(address sender, uint amount0, uint amount1, bytes calldata data) external;
@@ -293,7 +293,7 @@ interface IUniswapV2Callee {
 
 // File: contracts/UniswapV2Pair.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 
 
@@ -495,7 +495,7 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
 
 // File: contracts/UniswapV2Factory.sol
 
-pragma solidity =0.5.16;
+pragma solidity =0.8.0;
 
 
 contract UniswapV2Factory is IUniswapV2Factory {
