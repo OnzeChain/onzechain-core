@@ -5,7 +5,7 @@
   "homepage": "https://uniswap.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Uniswap/uniswap-v2-core.git"
+    "url": "https://github.com/Uniswap/uniswap-v2-core"
   },
   "keywords": [
     "uniswap",
@@ -22,10 +22,12 @@
     "node": ">=10"
   },
   "devDependencies": {
+    "@eth-optimism/ovm-toolchain": "^0.0.2-alpha.2",
+    "@eth-optimism/solc": "0.5.16-alpha.7",
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
-    "ethereum-waffle": "^3.1.0",
+    "ethereum-waffle": "^3.2.1",
     "ethereumjs-util": "^6.2.0",
     "mocha": "^6.2.2",
     "prettier": "^1.19.1",
@@ -38,25 +40,24 @@
     "lint": "yarn prettier ./test/*.ts --check",
     "lint:fix": "yarn prettier ./test/*.ts --write",
     "clean": "rimraf ./build/",
-    "precompile": "yarn clean",
-    "compile": "waffle .waffle.json",
-    "pretest": "yarn compile",
-    "test": "mocha",
-    "prepublishOnly": "yarn test"
+    "precompile:evm": "yarn clean",
+    "precompile:ovm": "yarn clean",
+    "compile:evm": "waffle .waffle.json",
+    "compile:ovm": "waffle .waffle-ovm.json",
+    "pretest:evm": "yarn compile:evm",
+    "pretest:ovm": "yarn compile:ovm",
+    "test:evm": "mocha",
+    "test:ovm": "export MODE=OVM && mocha",
+    "prepublishOnly": "yarn test:evm && yarn test:ovm"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.1",
-    "@truffle/hdwallet-provider": "^1.4.0",
     "dotenv": "^8.2.0",
     "truffle-hdwallet-provider": "^1.0.17"
   },
-  "bugs": {
-    "url": "https://github.com/Uniswap/uniswap-v2-core/issues"
-  },
-  "main": "truffle-config.js",
-  "directories": {
-    "test": "test"
-  },
-  "author": ""
+  "volta": {
+    "node": "10.24.1",
+    "yarn": "1.22.18"
+  }
 }
