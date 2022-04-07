@@ -22,12 +22,10 @@
     "node": ">=10"
   },
   "devDependencies": {
-    "@eth-optimism/ovm-toolchain": "^0.0.2-alpha.2",
-    "@eth-optimism/solc": "0.5.16-alpha.7",
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
-    "ethereum-waffle": "^3.2.1",
+    "ethereum-waffle": "^2.4.1",
     "ethereumjs-util": "^6.2.0",
     "mocha": "^6.2.2",
     "prettier": "^1.19.1",
@@ -40,24 +38,19 @@
     "lint": "yarn prettier ./test/*.ts --check",
     "lint:fix": "yarn prettier ./test/*.ts --write",
     "clean": "rimraf ./build/",
-    "precompile:evm": "yarn clean",
-    "precompile:ovm": "yarn clean",
-    "compile:evm": "waffle .waffle.json",
-    "compile:ovm": "waffle .waffle-ovm.json",
-    "pretest:evm": "yarn compile:evm",
-    "pretest:ovm": "yarn compile:ovm",
-    "test:evm": "mocha",
-    "test:ovm": "export MODE=OVM && mocha",
-    "prepublishOnly": "yarn test:evm && yarn test:ovm"
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/contracts": "^2.5.1",
-    "dotenv": "^8.2.0",
-    "truffle-hdwallet-provider": "^1.0.17"
-  },
-  "volta": {
-    "node": "10.24.1",
-    "yarn": "1.22.18"
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "dotenv": "^16.0.0",
+    "hardhat": "^2.9.3",
+    "web3": "^1.7.1"
   }
 }

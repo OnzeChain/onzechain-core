@@ -5,4 +5,8 @@ import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
 contract Token2 is ERC20Detailed, ERC20 {
     constructor() ERC20Detailed('Token 2','TK2', 18) public {}
+
+      function faucet(address to, uint amount) external {
+    _mint(to, amount);
+  }
 }
