@@ -3,6 +3,7 @@
 //
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
+
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 const { writeAddr,writeJson } = require("./artifact_log")
@@ -51,20 +52,14 @@ await writeAddr(Factory.address, "UniswapV2Factory");
 // save contract address
 await writeAddr(Factory.address, "UniswapV2Factory");
 
-// // save init code hash
-// const init_code_pair_hash = await Factory.INIT_CODE_PAIR_HASH();
-// console.log("init_code_pair_hash:", init_code_pair_hash)
-// await writeJson("INIT_CODE_PAIR_HASH", init_code_pair_hash, "INIT_CODE_PAIR_HASH")
-// // We also save the contract's artifacts and address in the frontend directory
-// // saveFrontendFiles(token);
 
-// Pancakepair
+// UniswapV2Pairpair
 const _UniswapV2Pair = await ethers.getContractFactory("UniswapV2Pair");
 const UniswapV2Pair = await _UniswapV2Pair.deploy();
 await UniswapV2Pair.deployed();
-console.log("PancakePair address:", UniswapV2Pair.address);
+console.log("UniswapV2Pair address:", UniswapV2Pair.address);
 // save contract address
-await writeAddr(UniswapV2Pair.address, "PancakePair");
+await writeAddr(UniswapV2Pair.address, "UniswapV2Pair");
 
 // // CakeToken
 // const _QuickToken = await ethers.getContractFactory("QuickToken");
@@ -92,3 +87,5 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+  // To verify the contracts run npx hardhat verify --network rinkeby CONTRACT_ADDRESS "feeToSetter.address"
