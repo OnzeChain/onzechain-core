@@ -1,3 +1,5 @@
 node_modules/
 build/
-.env
+.env/
+migrations/2_deploy_contracts.js/
+scripts
