@@ -11,12 +11,6 @@ const polyscanApiKey = envConfig.getPolyscanApiKey().getOrDefault();
 const networkurl = envConfig.getNetworkUrl().getOrDefault();
 module.exports = {
   web3: Web3,
-  api_keys: {
-    etherscan: polyscanApiKey,
-  },
-  plugins: [
-		'truffle-plugin-verify',
-	],
   mocha: {
     enableTimeouts: false,
   },
@@ -50,5 +44,11 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true
     },
-  }
+  },
+  plugins: [
+		'truffle-plugin-verify'],
+    api_keys:{
+      polygonscan: polyscanApiKey,
+    }
+	
 }
