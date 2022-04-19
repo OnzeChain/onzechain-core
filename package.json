@@ -1,18 +1,18 @@
 {
-  "name": "@uniswap/v2-core",
-  "description": "🎛 Core contracts for the UniswapV2 protocol",
+  "name": "onzechainv1-core",
+  "description": "🎛 Core contracts for the Onzechain protocol",
   "version": "1.0.1",
-  "homepage": "https://uniswap.org",
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Uniswap/uniswap-v2-core.git"
+    "url": ""
   },
   "keywords": [
-    "uniswap",
+    "onze",
     "ethereum",
     "v2",
     "core",
-    "uniswap-v2"
+    "ONZ"
   ],
   "files": [
     "contracts",
@@ -25,15 +25,22 @@
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
-    "ethereum-waffle": "^3.1.0",
+    "dotenv": "^16.0.0",
+    "ethereum-waffle": "^2.5.1",
     "ethereumjs-util": "^6.2.0",
     "mocha": "^6.2.2",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "solc": "0.5.16",
+    "truffle-plugin-verify": "^0.5.4",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
     "ethers": "^5.6.2"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "truffle": "^5.1.41",
+    "truffle-flattener": "^1.4.4"
   },
   "scripts": {
     "lint": "yarn prettier ./test/*.ts --check",
@@ -43,21 +50,13 @@
     "compile": "waffle .waffle.json",
     "pretest": "yarn compile",
     "test": "mocha",
-    "prepublishOnly": "yarn test"
+    "prepublishOnly": "yarn test",
+    "deploy:testnet": "truffle compile && truffle deploy --reset --network testnet",
+    "verify:testnet": "truffle run verify OnzechainV1Factory --network testnet",
+    "check:hashcode:testnet": "truffle compile && truffle exec ./scripts/viewBytecode.js --network testnet",
+    "deploy:mainnet": "truffle compile && truffle deploy --reset --network mainnet",
+    "verify:mainnet": "truffle run verify OnzechainV1Factory --network mainnet",
+    "check:hashcode:mainnet": "truffle compile && truffle exec ./scripts/viewBytecode.js --network mainnet"
   },
-  "license": "GPL-3.0-or-later",
-  "dependencies": {
-    "@ethersproject/providers": "^5.6.2",
-    "@openzeppelin/contracts": "^4.5.0",
-    "@truffle/hdwallet-provider": "^2.0.4",
-    "dotenv": "^16.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/Uniswap/uniswap-v2-core/issues"
-  },
-  "main": "truffle-config.js",
-  "directories": {
-    "test": "test"
-  },
-  "author": ""
+  "license": "GPL-3.0-or-later"
 }
