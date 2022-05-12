@@ -1,14 +1,12 @@
-const envConfig = require('./config/env')();
+//const envConfig = require('./config/env')();
 require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-// Environment Configuration
-const addressCountValue = envConfig.getAddressCount().getOrDefault();
-const mnemonicKeyValue = envConfig.getMnemonic().get();
-const defaultAddressIndex = envConfig.getDefaultAddressIndex().getOrDefault();
-const polyscanApiKey = envConfig.getPolyscanApiKey().getOrDefault();
-const networkurl = envConfig.getNetworkUrl().getOrDefault();
+
+const mnemonicKeyValue = process.env.MNEMONIC_KEY;
+const polyscanApiKey = process.env.POLYGONSCAN_API_KEY;
+
 module.exports = {
   web3: Web3,
   mocha: {
@@ -26,10 +24,9 @@ module.exports = {
     }
   },
   networks: {
-    // Block explorer: https://testnet.bscscan.com
-    // RPCs: https://docs.binance.org/smart-chain/developer/rpc.html
+
     mumbai: {
-      provider: () => new HDWalletProvider(mnemonicKeyValue, `https://matic-mumbai.chainstacklabs.com`, defaultAddressIndex, addressCountValue),
+      provider: () => new HDWalletProvider(mnemonicKeyValue, `https://polygon-mumbai.infura.io/v3/dd69e3a95b884508acf4888dec62d415`),
       network_id: 80001,       // mumbai's id
       confirmations: 1,
       skipDryRun: false,

@@ -26,7 +26,7 @@ module.exports = async function (deployer, _network, addresses) {
     const initCodeOnzePairHash = await factory.INIT_CODE_PAIR_HASH();
     console.log(`OnzechainV1Pair code hash: ${initCodeOnzePairHash}`)
   
-    //console.log(`OnzechainV1Factory deployed at address: ${factory.address}`);
+
 
     
   } catch (e) {
@@ -35,8 +35,9 @@ module.exports = async function (deployer, _network, addresses) {
   
 };
 // To verify using truffle first install "npm install -D truffle-plugin-verify" then 
-// run "truffle run verify UniswapV2Factory --network mumbai"
-// factory address = 0x2BFB281b1a5010e49608374b9A3dB5d371ed0665
+// run "truffle run verify OnzechainV2Factory --network mumbai"
+// factory address =  0x015ec2E2ef1e2Bf2F4E3fd768C6A68E2585DEe6C
 // Token 1 address = 0x992a3Edd17DF2739c8d1CD07D574D2Cc4E6d2923
 // Token 2 address = 0x041C2d6C3BDCa599E12195D8F4476F86885d56E7
-// Init_Code_Pair_Hash = 0x6b5a6e78489e855baf2de593a4de0067eb5445636c1325f795859066de6b03d5
+// Init_Code_Pair_Hash = 0x74ed3f79f73f125a6608d0844327dd522ea8cd9cb89aa003ea263e47f47befcb
+// Router address - 0xCB005106E0C6b7ac110818B6765554B852505868

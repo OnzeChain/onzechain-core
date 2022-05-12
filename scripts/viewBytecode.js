@@ -1,14 +1,9 @@
 const assert = require('assert');
-// Smart contracts
 
-// Util classes
 const OnzechainV1Factory = artifacts.require("OnzechainV1Factory.sol");
 const OnzechainV1Pair = artifacts.require("OnzechainV1Pair.sol");
 
-/** Process parameters: */
 
-// Testnet: 0xCc261efd1946f1810959B2cbbDbD7057d39b0FCa
-// Mainnet: 0x3b5238312DcBb5ADEdA7470109e60c39CF9ad406
 const onzeFactoryAddress = '0x3b5238312DcBb5ADEdA7470109e60c39CF9ad406';
 
 module.exports = async (callback) => {
